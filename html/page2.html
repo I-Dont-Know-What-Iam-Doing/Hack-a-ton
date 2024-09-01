@@ -37,5 +37,30 @@
         </nav><br><br>
     </header>
     games for cyber prevention like scam knowledge etc.......
-</body>
-</html>
+
+        <div id="question">What is 2 + 2?</div>
+        <input type="text" id="answer" placeholder="Type your answer here">
+        <button onclick="checkAnswer()">Submit</button>
+        <div id="result"></div>
+    
+        <script>
+            function checkAnswer() {
+                // Get the user's input
+                var userAnswer = document.getElementById('answer').value;
+    
+                // Define the correct answer
+                var correctAnswer = '4';
+    
+                // Check if the user's answer is correct
+                var resultText;
+                if (userAnswer === correctAnswer) {
+                    resultText = 'Correct! 2 + 2 is indeed 4.';
+                } else {
+                    resultText = 'Incorrect. Try again!';
+                }
+    
+                // Display the result
+                document.getElementById('result').textContent = resultText;
+            }
+        </script>
+        </body>
