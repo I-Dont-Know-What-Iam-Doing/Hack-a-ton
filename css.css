@@ -1,0 +1,213 @@
+/* /* styles.css
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+select {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+main {
+    padding: 20px;
+}
+
+#chat, #emergency-alerts {
+    margin-bottom: 20px;
+}
+
+#messages {
+    border: 1px solid #ccc;
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+#message-input {
+    width: 80%;
+    padding: 10px;
+}
+
+#send-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+}
+
+#alerts {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+} */
+
+
+/* styles.css */
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background for better contrast */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px; /* Increased padding for better spacing */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+header h1 {
+    margin: 0;
+}
+
+select {
+    margin-top: 10px;
+    padding: 8px; /* Increased padding for better usability */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners for modern look */
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px; /* Max width to prevent overly wide content */
+    margin: auto; /* Center content */
+}
+
+#chat, #emergency-alerts {
+    margin-bottom: 20px;
+}
+
+#messages, #alerts {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fff; /* White background for better contrast */
+    border-radius: 4px; /* Rounded corners for modern look */
+}
+
+#messages {
+    height: 200px;
+    overflow-y: auto;
+}
+
+#message-input {
+    width: calc(100% - 120px); /* Adjust width to fit the button */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; /* Margin to create space between input and button */
+}
+
+#send-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff; /* Primary button color */
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+#send-button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+#alerts p {
+    margin: 0 0 10px 0; /* Spacing between alerts */
+} */
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background for better contrast */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px; /* Increased padding for better spacing */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+header h1 {
+    margin: 0;
+}
+
+select {
+    margin-top: 10px;
+    padding: 8px; /* Increased padding for better usability */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners for modern look */
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px; /* Max width to prevent overly wide content */
+    margin: auto; /* Center content */
+}
+
+#chat, #emergency-alerts {
+    margin-bottom: 20px;
+}
+
+#messages, #alerts {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fff; /* White background for better contrast */
+    border-radius: 4px; /* Rounded corners for modern look */
+}
+
+#messages {
+    height: 200px;
+    overflow-y: auto;
+}
+
+#message-input {
+    width: calc(100% - 120px); /* Adjust width to fit the button */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; /* Margin to create space between input and button */
+}
+
+#send-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff; /* Primary button color */
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+#send-button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+#alerts p {
+    margin: 0 0 10px 0; /* Spacing between alerts */
+}
