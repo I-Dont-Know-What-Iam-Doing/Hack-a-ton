@@ -5,8 +5,6 @@ body{
     background-size: cover; 
 
 
-    
-}
 body>article{
     text-shadow: 2px 2px 5px blue;
     
@@ -15,7 +13,7 @@ body > div.form{
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     box-shadow: 0px 0px 16px 0px rgba(57, 74, 154, 0.5);
-    border-radius: 70px;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
