@@ -1,6 +1,6 @@
-@charset "UTF-8";
+ @charset "UTF-8";
 
-body {
+ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
@@ -49,9 +49,6 @@ main {
     padding: 10px;
     background-color: #f9f9f9;
 }
-
-
-
 
 
 
@@ -120,7 +117,8 @@ main {
 
 #alerts p {
     margin: 0 0 10px 0; /* Spacing between alerts */
-} */
+} */ */
+
 /* styles.css */
 
 body {
