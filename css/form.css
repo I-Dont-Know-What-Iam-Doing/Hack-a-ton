@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+body{
+    background: url(../images/white.jpg) no-repeat; 
+    background-size: cover; 
 
 
 body>article{
