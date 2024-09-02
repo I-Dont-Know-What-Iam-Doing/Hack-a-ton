@@ -44,11 +44,6 @@ main {
     padding: 10px;
 }
 
-#send-button {
-    padding: 10px 20px;
-    margin-left: 10px;
-}
-
 #alerts {
     border: 1px solid #ccc;
     padding: 10px;
@@ -123,20 +118,6 @@ main {
     margin-right: 10px; /* Margin to create space between input and button */
 }
 
-#send-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff; /* Primary button color */
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-#send-button:hover {
-    background-color: #0056b3; /* Darker color on hover */
-}
-
 #alerts p {
     margin: 0 0 10px 0; /* Spacing between alerts */
 } */
@@ -197,20 +178,6 @@ main {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px; /* Margin to create space between input and button */
-}
-
-#send-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff; /* Primary button color */
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-#send-button:hover {
-    background-color: #0056b3; /* Darker color on hover */
 }
 
 #alerts p {
