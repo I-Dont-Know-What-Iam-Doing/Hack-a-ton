@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 body{
-    background: url(../images/white.jpg) no-repeat; 
+    background: url(../white.jpg) no-repeat; 
     background-size: cover; 
-
+}
 
 body>article{
     text-shadow: 2px 2px 5px blue;
@@ -17,8 +17,8 @@ body > div.form{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 75px;
-    margin-right:75px;
+    margin-left: 85px;
+    margin-right:85px;
     
 }
 #top{
