@@ -67,7 +67,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Light background for better contrast */
-    background-image: url(night.jpg);
+    background-image: url(../night.jpg);
 }
 
 header {
