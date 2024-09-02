@@ -121,23 +121,32 @@ const translations = {
         alert1: 'Emergency Alert: Severe weather warning in your area.',
         alert2: 'Emergency Alert: Road closures due to accident.'
     },
-    es: {
-        headerTitle: 'Plataforma de Apoyo Comunitario',
-        chatTitle: 'Chat Comunitario',
-        alertsTitle: 'Alertas de Emergencia',
-        messagePlaceholder: 'Escribe un mensaje',
-        sendButton: 'Enviar',
-        alert1: 'Alerta de Emergencia: Advertencia de clima severo en tu área.',
-        alert2: 'Alerta de Emergencia: Cierres de carreteras debido a un accidente.'
+    ch: {
+        headerTitle: '社区支持平台',
+        chatTitle: '社区聊天',
+        alertsTitle: '紧急警报',
+        messagePlaceholder: '输入信息',
+        sendButton: '发送',
+        alert1: '紧急警报：您所在地区的严重天气警告。',
+        alert2: '紧急警报：由于事故，道路封闭。'
     },
-    fr: {
-        headerTitle: 'Plateforme de Soutien Communautaire',
-        chatTitle: 'Chat Communautaire',
-        alertsTitle: 'Alertes d\'urgence',
-        messagePlaceholder: 'Tapez un message',
-        sendButton: 'Envoyer',
-        alert1: 'Alerte d\'urgence : Alerte météorologique sévère dans votre région.',
-        alert2: 'Alerte d\'urgence : Fermetures de routes en raison d\'un accident.'
+    my: {
+        headerTitle: 'Platform Sokongan Komuniti',
+        chatTitle: 'Sembang Komuniti',
+        alertsTitle: 'Amaran Kecemasan',
+        messagePlaceholder: 'Tulis mesej',
+        sendButton: 'Hantar',
+        alert1: 'Amaran Kecemasan: Amaran cuaca buruk di kawasan anda.',
+        alert2: 'Amaran Kecemasan: Penutupan jalan akibat kemalangan.'
+    },
+    tm: {
+        headerTitle: 'சமூக ஆதரவு தளம்',
+        chatTitle: 'சமூக உரையாடல்',
+        alertsTitle: 'அவசர அறிவிப்புகள்',
+        messagePlaceholder: 'ஒரு செய்தியை பதிவிடுங்கள்',
+        sendButton: 'அனுப்பு',
+        alert1: 'அவசர அறிவிப்பு: உங்கள் பகுதியில் கடும் வானிலை எச்சரிக்கை.',
+        alert2: 'அவசர அறிவிப்பு: விபத்தின் காரணமாக சாலை மூடப்பட்டது.'
     }
 
     
