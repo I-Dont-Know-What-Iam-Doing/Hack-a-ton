@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Chess</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- js -->
+    <script src="../javascript/main.js" defer></script>
+    <style>
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+        .chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 60px);
+            grid-template-rows: repeat(8, 60px);
+            gap: 1px;
+            justify-content: center;
+            margin: 20px auto;
+            background-color: #333;
+        }
+
+        .square {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .square:nth-child(even) {
+            background-color: #f0d9b5;
+        }
+
+        .square:nth-child(odd) {
+            background-color: #b58863;
+        }
+
+        .piece {
+            cursor: move;
+            user-select: none;
+        }
+
+        .dragging {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <header class="container my-4">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <img src="../dell.png" alt="Brand" height="50">
+                <!-- Toggle button for responsive navbar -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="game.html">Game</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="form.html">Form</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <header class="container my-4">
+        <h1 class="border border-3"> 
+
+
+            
+        </h1>
+    </header>
+
+    <main class="container">
+        <section id="chessgame">
+            <div id="board" class="chessboard"></div>
+            <p id="status" class="mt-3">White's turn</p>
+        </section>  
+    </main>
+
+    <script>
+        const boardElement = document.getElementById('board');
+        const statusElement = document.getElementById('status');
+        let board = [];
+        let currentTurn = 'white';
+
+        // Define piece movements for basic chess rules
+        const pieceMoves = {
+            'P': [[-1, 0], [-2, 0]], // Pawn moves
+            'p': [[1, 0], [2, 0]], // Black Pawn moves
+            'R': [[1, 0], [0, 1], [-1, 0], [0, -1]], // Rook moves
+            'r': [[1, 0], [0, 1], [-1, 0], [0, -1]], // Black Rook moves
+            'N': [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]], // Knight moves
+            'n': [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]], // Black Knight moves
+            'B': [[1, 1], [1, -1], [-1, 1], [-1, -1]], // Bishop moves
+            'b': [[1, 1], [1, -1], [-1, 1], [-1, -1]], // Black Bishop moves
+            'Q': [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]], // Queen moves
+            'q': [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]], // Black Queen moves
+            'K': [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]], // King moves
+            'k': [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]] // Black King moves
+        };
+
+        // Initialize the chess board
+        function createBoard() {
+            for (let i = 0; i < 64; i++) {
+                const square = document.createElement('div');
+                square.classList.add('square');
+                const row = Math.floor(i / 8);
+                const col = i % 8;
+                square.dataset.row = row;
+                square.dataset.col = col;
+                boardElement.appendChild(square);
+                board.push(square);
+            }
+            renderBoard();
+        }
+
+        // Render the board with pieces
+        function renderBoard() {
+            const pieces = [
+                'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R',
+                'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P',
+                '', '', '', '', '', '', '', '',
+                '', '', '', '', '', '', '', '',
+                '', '', '', '', '', '', '', '',
+                '', '', '', '', '', '', '', '',
+                'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p',
+                'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'
+            ];
+
+            board.forEach((square, index) => {
+                const piece = pieces[index];
+                square.classList.remove('highlight', 'valid-move');
+                if (piece) {
+                    const pieceElement = document.createElement('span');
+                    pieceElement.textContent = piece;
+                    pieceElement.classList.add('piece');
+                    pieceElement.draggable = true;
+                    pieceElement.addEventListener('dragstart', handleDragStart);
+                    pieceElement.addEventListener('dragend', handleDragEnd);
+                    square.innerHTML = '';
+                    square.appendChild(pieceElement);
+                } else {
+                    square.innerHTML = '';
+                }
+            });
+        }
+
+        // Handle drag start
+        function handleDragStart(event) {
+            event.dataTransfer.setData('text/plain', event.target.parentElement.dataset.row + '-' + event.target.parentElement.dataset.col);
+            event.target.classList.add('dragging');
+        }
+
+        // Handle drag end
+        function handleDragEnd(event) {
+            event.target.classList.remove('dragging');
+        }
+
+        // Handle drag over
+        function handleDragOver(event) {
+            event.preventDefault();
+        }
+
+        // Handle drop
+        function handleDrop(event) {
+            event.preventDefault();
+            const from = event.dataTransfer.getData('text/plain').split('-');
+            const fromRow = parseInt(from[0]);
+            const fromCol = parseInt(from[1]);
+            const toRow = event.target.dataset.row;
+            const toCol = event.target.dataset.col;
+            const fromSquare = board[fromRow * 8 + fromCol];
+            const toSquare = board[toRow * 8 + toCol];
+            if (isValidMove(fromSquare, toSquare)) {
+                toSquare.appendChild(fromSquare.firstChild);
+                statusElement.textContent = `${currentTurn === 'white' ? 'Black' : 'White'}'s turn`;
+                currentTurn = currentTurn === 'white' ? 'black' : 'white';
+            }
+        }
+
+        // Check if the move is valid (basic check)
+        function isValidMove(fromSquare, toSquare) {
+            // For simplicity, we're just moving the piece without validating chess rules
+            return !toSquare.querySelector('.piece') || (fromSquare.querySelector('.piece').textContent === 'P' && toSquare.querySelector('.piece').textContent === 'p');
+        }
+
+        // Attach event listeners to squares
+        function setupEventListeners() {
+            board.forEach(square => {
+                square.addEventListener('dragover', handleDragOver);
+                square.addEventListener('drop', handleDrop);
+            });
+        }
+
+        // Initialize the board
+        createBoard();
+        setupEventListeners();
+    </script>
+</body>
+</html>
